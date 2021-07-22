@@ -36,7 +36,7 @@ class CategorieProduit
 
     public function __toString(): string
     {
-        return (string) $this->nom;
+        return (string) $this->id.' '.$this->nom;
     }
 
     public function __construct()

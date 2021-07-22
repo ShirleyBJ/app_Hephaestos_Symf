@@ -125,6 +125,11 @@ class Utilisateur
         return $this;
     }
 
+    public function getFullName(): ?string
+    {
+        return $this->getNom().' '.$this->getPrenom();
+    }
+
     public function getAdresse(): ?string
     {
         return $this->adresse;

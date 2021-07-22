@@ -6,6 +6,7 @@ use App\Entity\Commande;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 
 class CommandeCrudController extends AbstractCrudController
 {
@@ -17,6 +18,7 @@ class CommandeCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            IdField::new('id')->hideOnForm(),
             DateField::new('dateCommande'),
             DateField::new('dateRetraitCommande'),
             AssociationField::new('noClient'),

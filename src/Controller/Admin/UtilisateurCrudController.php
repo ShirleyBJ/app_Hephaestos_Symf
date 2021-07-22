@@ -3,10 +3,11 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Utilisateur;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
-
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -23,9 +24,11 @@ class UtilisateurCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            IdField::new('id')->hideOnForm(),
             TextField::new('civilite'),
             TextField::new('nom'),
             TextField::new('prenom'),
+            TextField::new('fullName','Nom complet'),
             TextField::new('adresse'),
             TextField::new('cp', 'CP'),
             TextField::new('ville'),
@@ -34,5 +37,11 @@ class UtilisateurCrudController extends AbstractCrudController
             TextField::new('motDePasse'),
             TextField::new('role'),
         ];
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setSearchFields(['nom','prenom']); //name of entities properties to seach in
     }
 }
