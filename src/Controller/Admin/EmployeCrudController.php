@@ -10,6 +10,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\DateTimeFilter;
 
 class EmployeCrudController extends AbstractCrudController
 {
@@ -37,6 +39,13 @@ class EmployeCrudController extends AbstractCrudController
             DateField::new('dateEmbauche'),
             DateField::new('dateFinContrat')->hideOnIndex(),
         ];
+    }
+
+    public function configureFilters(Filters $filters): Filters
+    {
+        return $filters
+            ->add(DateTimeFilter::new('dateNaissance'))
+            ->add(DateTimeFilter::new('dateEmbauche'));
     }
     
 }

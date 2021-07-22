@@ -38,10 +38,4 @@ class UtilisateurCrudController extends AbstractCrudController
             TextField::new('role'),
         ];
     }
-
-    public function configureCrud(Crud $crud): Crud
-    {
-        return $crud
-        ->setSearchFields(['nom','prenom']); //name of entities properties to seach in
-    }
 }

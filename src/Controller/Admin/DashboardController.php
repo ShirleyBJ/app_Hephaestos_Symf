@@ -43,7 +43,8 @@ class DashboardController extends AbstractDashboardController
     {
         return Crud::new()
         ->setPaginatorPageSize(10)// the max number of entities to display per page
-        ->setPaginatorRangeSize(5);// the paginator displays: [Previous]  1 ... [3 ]... 5 [Next]
+        ->setPaginatorRangeSize(5)// the paginator displays: [Previous]  1 ... [3 ]... 5 [Next]
+        ->setSearchFields(['nom','prenom','ville','cp']); //name of entities properties to seach in
     }
 
     public function configureMenuItems(): iterable
