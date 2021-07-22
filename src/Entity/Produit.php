@@ -25,12 +25,6 @@ class Produit
     private $nom;
 
     /**
-     * @ORM\OneToOne(targetEntity=Fournisseur::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $nomFournisseur;
-
-    /**
      * @ORM\Column(type="float")
      */
     private $prixUnitaire;
@@ -55,6 +49,12 @@ class Produit
      */
     private $produitCommanders;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Fournisseur::class, inversedBy="produits")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $fournisseur;
+
     public function __toString(): string
     {
         return (string) $this->id .' '. $this->nom;
@@ -78,18 +78,6 @@ class Produit
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getNomFournisseur(): ?Fournisseur
-    {
-        return $this->nomFournisseur;
-    }
-
-    public function setNomFournisseur(Fournisseur $nomFournisseur): self
-    {
-        $this->nomFournisseur = $nomFournisseur;
 
         return $this;
     }
@@ -168,6 +156,18 @@ class Produit
                 $produitCommander->setProduit(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFournisseur(): ?Fournisseur
+    {
+        return $this->fournisseur;
+    }
+
+    public function setFournisseur(?Fournisseur $fournisseur): self
+    {
+        $this->fournisseur = $fournisseur;
 
         return $this;
     }

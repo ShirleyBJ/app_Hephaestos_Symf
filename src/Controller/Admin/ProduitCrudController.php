@@ -24,7 +24,7 @@ class ProduitCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('nom'),
-            AssociationField::new('nomFournisseur'),
+            AssociationField::new('fournisseur'),
             MoneyField::new('prixUnitaire')->setCurrency('EUR'),
             IntegerField::new('unitesStock'),
             AssociationField::new('categorie'),
