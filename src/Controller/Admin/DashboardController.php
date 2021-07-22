@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Admin;
 use App\Entity\CategorieProduit;
 use App\Entity\Commande;
 use App\Entity\Employe;
@@ -53,7 +54,9 @@ class DashboardController extends AbstractDashboardController
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
         yield MenuItem::linkToRoute('Back to Website','fas fa-home','homepage');
         yield MenuItem::section('Utilisateur');
-        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user', Utilisateur::class);
+        yield MenuItem::linkToCrud('Panneau Admin', 'fas fa-user', Admin::class)   
+            ->setPermission('ROLE_SUPER_ADMIN');
+        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-address-card', Utilisateur::class);
         yield MenuItem::linkToCrud('Employe', 'fas fa-id-badge', Employe::class);
         yield MenuItem::section('Commande');
         yield MenuItem::linkToCrud('Commande', 'fas fa-receipt', Commande::class);
@@ -67,11 +70,8 @@ class DashboardController extends AbstractDashboardController
 
     public function configureUserMenu(UserInterface $user): UserMenu
     {
-        return parent::configureUserMenu($user);
-        //TODO:Create user entity to implement this function
-        //https://symfony.com/doc/current/bundles/EasyAdminBundle/dashboards.html
-        
+        return parent::configureUserMenu($user)
         // use the given $user object to get the user name
-        // ->setName($user->getFullName());
+        ->setName($user->getUsername());
     }
 }
