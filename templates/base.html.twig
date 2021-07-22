@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Hephaestos est un garage automobile qui prend soin de ses clients et de leurs véhicules.
+			    Un vrai savoir-faire dans la maintenance et la réparation automobile mais pas que. Notre vrai passion est la rénovation automobile
+			    de voiture de collection, d'époques. Une vrai équipe dédiée pour réaliser de vrais oeuvres sur roues.">
+		<title>
+			{% block title %}
+				HEPHAESTOS
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+            {# TODO/ Add stylesheets CSS -> template top #}
+			{#{{ encore_entry_link_tags('app') }}#}
+            {# TODO/ Add Fontawesome icon -> template top #}
+		{% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+		{% block javascripts %}
+            {# TODO/ Add script javascripts -> template top #}
+			{#{{ encore_entry_script_tags('app') }}#}
+		{% endblock %}
+	</head>
+	<body>
+		{% include 'nav.html.twig'  %}
+		{% block body %}{% endblock %}
+		{% include 'nav.html.twig'  %}
+	</body>
 </html>
+
