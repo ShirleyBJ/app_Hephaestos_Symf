@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+	- Contact
+{% endblock %}
+
+{% block body %}
+	{# HEADER #}
+	<header class="header_ctc">
+		<h1>Nous contacter</h1>
+		<p>Si vous souhaitez avoir plus d'informations</p>
+	</header>
+	{# MAIN #}
+	<main>
+		<div class="ctc_custom">
+			<article class="block_left">
+				<span class="decoration">
+					<h2>Une question ?</h2>
+				</span>
+				<div class="ctc_info">
+					<address>
+						<p>Adressse: 66 Highway Road, Floorland</p>
+						<a href="mailto:contact@hephaestos.com">Email : contact@hephaestos.com</a>
+						<a href="tel:+330101010101">Téléphone: (+33)01.01.01.01.01</a>
+					</address>
+					<div class="ctc_socialMedia">
+						<img src="assets/img/facebook.svg" alt="picto facebook" class="ctc_img--responsive">
+						<img src="assets/img/instagram.svg" alt="picto instagram" class="ctc_img--responsive">
+						<img src="assets/img/twitter.svg" alt="picto twitter" class="ctc_img--responsive">
+						<img src="assets/img/pinterest.svg" alt="picto pinterest" class="ctc_img--responsive">
+					</div>
+				</div>
+				<div class="map_centered">
+					<img src="https://www.mapquestapi.com/staticmap/v5/map?key=s4w3dJJw5XazzZ1x1v9EU8xjg4rI5DGG&center=49.4179497,2.8263171&zoom=12&traffic=flow|cons|inc" alt="carte routiere de compiegne" class="map-api">
+				</div>
+			</article>
+			<article class="block_right">
+				<span class="decoration">
+					<h2>Parlon-en ...</h2>
+				</span>
+				<div class="ctc_form">
+					{# <form action="" method="post">
+						<h3 class="ctc_title">Formulaire de contact</h3>
+						<div class="inline">
+							<i class="fas fa-user ctc-user-form"></i><input type="text" name="name" id="name" placeholder=" Votre nom " class="npt__ctc--backgd npt__ctc--style"></div>
+						<div class="inline">
+							<i class="fas fa-envelope"></i><input type="email" name="email" id="email" placeholder="Votre email*" class="npt__ctc--backgd npt__ctc--style"></div>
+						<div class="inline">
+							<i class="fas fa-phone-alt"></i><input type="tel" name="tel" id="tel" placeholder="Numéro de télèphone*" class="npt__ctc--backgd npt__ctc--style"></div>
+						<textarea placeholder="Votre message" maxlength="400" rows="5" cols="2" class="npt__ctc--backgd"></textarea>
+						<input type="submit" value="Envoyer" class="btn_ctc--style">
+					</form> #}
+				</div>
+			</article>
+		</div>
+		{# Block newsletter #}
+		<div class="newsletter">
+			<div class="newsletter_txt">
+				<p>Besoin de notre expertise ? Une question, un conseil ?</p>
+				<p>N'hésitez pas et laissez-nous vos coodornnées
+				</p>
+			</div>
+			<form action="action.php">
+				<input type="email" name="mail" id="mail" placeholder="Entrez votre email...">
+			</form>
+		</div>
+	</main>
+
+{% endblock %}
+
