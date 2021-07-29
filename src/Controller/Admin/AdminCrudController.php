@@ -3,15 +3,16 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Admin;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 
 class AdminCrudController extends AbstractCrudController
 {
@@ -30,5 +31,10 @@ class AdminCrudController extends AbstractCrudController
             TextField::new('password'),
             TextField::new('username'),
         ];
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {
+        return $actions;
     }
 }
